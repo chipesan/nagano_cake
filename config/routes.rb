@@ -5,8 +5,9 @@ devise_for :customers,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
-
-# 管理者用
+root to: 'public/homes#top'
+get "/home/about" => "public/homes#about", as: "about"
+get '/items' => 'public/items#index'
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
