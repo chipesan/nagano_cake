@@ -12,12 +12,25 @@
 
   <body>
     <header>
+       <% if customer_signed_in? %>
+         <%= link_to "Log out", destroy_customer_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light" %>
+        <% end %>
+
       <% if admin_signed_in? %>
         <h1>ログイン中</h1>
-        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+         <li><%= link_to "商品一覧", admin_items_index_path, class: "fas fa-home nav-link text-light" %>
+         </li>
+         <li><%= link_to "会員一覧", admin_customers_index_path, class: "fas fa-users nav-link text-light" %>
+         </li>
+         <li><%= link_to "注文履歴一覧", admin_path, class: "fas fa-book-open nav-link text-light" %>
+         </li>
+         <li><%= link_to "ジャンル一覧", admin_genres_path, class: "fas fa-book-open nav-link text-light" %>
+         </li>
+         <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light" %>
+         </li>
       <% end %>
     </header>
-    <%= link_to "Log out", destroy_customer_session_path, method: :delete, class: "fas fa-sign-out-alt nav-link text-light" %>
+
     <%= yield %>
   </body>
 </html>
