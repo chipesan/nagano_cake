@@ -17,7 +17,7 @@ get "/admin/genres/:id/edit" => "admin/genres#edit", as: "admin_genres_edit"
 post "admin/genres" => "admin/genres#create", as: "admin_genres_create"
 get "admin/items" => "admin/items#index", as: "admin_items_index"
 get "admin/customers" => "admin/customers#index", as: "admin_customers_index"
-
+patch "/admin/genres/:id" => "admin/genres#update", as: "admin_genres_update"
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
