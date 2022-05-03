@@ -18,8 +18,9 @@ post "admin/genres" => "admin/genres#create", as: "admin_genres_create"
 get "admin/items" => "admin/items#index", as: "admin_items_index"
 get "admin/customers" => "admin/customers#index", as: "admin_customers_index"
 patch "/admin/genres/:id" => "admin/genres#update", as: "admin_genres_update"
-get "admin/items/new" => "admin_items#new", as: "admin_items_new"
+get "admin/items/new" => "admin/items#new", as: "admin_items_new"
 post "admin/items" => "admin/items#create", as: "admin_items_create"
+get "admin/items/:id" => "admin/items#show", as: "admin_items_show"
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"

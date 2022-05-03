@@ -1,13 +1,17 @@
-<%= form_with model: @items, url: admin_items_create_path do |f| %>
-  <h4>ジャンル名</h4>
+<%= form_with model: @item, url: admin_items_create_path do |f| %>
+  <h4>商品新規登録</h4>
+  <div class="form-group">
+  <%= f.label :image %><br>
+  <%= f.file_field :profile_image, class: "form-control" %>
+  </div>
   <%= f.text_field :name %><br>
   <%= f.text_field :introduction %><br>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %><br>
   <%= f.text_field :price %><br>
-  <%= f.submit "新規登録", class: "btn btn-success" %><br>
-<% end %>
-<%= form_with(model: @items, local: true) do |form| %>
-  <%= form.radio_button :is_active, :sale %>
-  <%= form.label :is_active, "販売中", {value: :sale, style: "display: inline-block;"} %>
-  <%= form.radio_button :is_active, :suspended_sales %>
-  <%= form.label :is_active, "販売停止中", {value: :suspended_sales, style: "display: inline-block;"} %>
+  <br>
+  <%= f.radio_button :is_active, :true %>
+  <%= f.label :is_active, "販売中", {value: :true, style: "display: inline-block;"} %>
+  <%= f.radio_button :is_active, :false %>
+  <%= f.label :is_active, "販売停止中", {value: :false, style: "display: inline-block;"} %><br>
+  <%= f.submit "新規登録", class: "btn btn-success" %>
 <% end %>

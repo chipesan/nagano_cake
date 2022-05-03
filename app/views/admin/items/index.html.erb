@@ -1,1 +1,35 @@
-admin側商品一覧ページ
+<h2>商品一覧</h2>
+<table class="table table-hover table-inverse">
+<thead>
+ <tr>
+  <th>商品ID</th>
+  <th>商品名</th>
+  <th>税抜価格</th>
+  <th>ジャンル</th>
+  <th>ステータス</th>
+  <th colspan="3"></th>
+ </tr>
+</thead>
+<tbody>
+<% @items.each do |item| %>
+  <tr>
+    <td>
+      <span><%= item.id %></span>
+    </td>
+    <td>
+      <span><%= link_to item.name, admin_items_show_path(item.id) %></span>
+    </td>
+    <td>
+      <span><%= item.price %></span>
+    </td>
+    <td>
+      <span><%= item.genre.name %></span>
+    </td>
+    <td>
+      <span><%= item.is_active %></span>
+    </td>
+    <td></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
