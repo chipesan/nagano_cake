@@ -17,7 +17,7 @@
         <% end %>
     　<% if request.fullpath.include? "admin"  %>
       <% if admin_signed_in? %>
-        <h1>ログイン中</h1>
+        <h1>管理者ログイン中</h1>
         <!--管理者ログイン中-->
          <li><%= link_to "商品一覧", admin_items_index_path, class: "fas fa-home nav-link text-light" %>
          </li>

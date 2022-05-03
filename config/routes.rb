@@ -21,6 +21,7 @@ patch "/admin/genres/:id" => "admin/genres#update", as: "admin_genres_update"
 get "admin/items/new" => "admin/items#new", as: "admin_items_new"
 post "admin/items" => "admin/items#create", as: "admin_items_create"
 get "admin/items/:id" => "admin/items#show", as: "admin_items_show"
+get "admin/items/:id/edit" => "admin/items#edit", as: "admin_items_edit"
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
