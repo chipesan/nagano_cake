@@ -4,11 +4,16 @@
   <%= f.label :image %><br>
   <%= f.file_field :profile_image, class: "form-control" %>
   </div>
+  商品名
   <%= f.text_field :name %><br>
+  商品説明
   <%= f.text_field :introduction %><br>
+  ジャンル
   <%= f.collection_select :genre_id, Genre.all, :id, :name %><br>
+  税抜価格
   <%= f.text_field :price %><br>
   <br>
+  販売ステータス
   <%= f.radio_button :is_active, :true %>
   <%= f.label :is_active, "販売中", {value: :true, style: "display: inline-block;"} %>
   <%= f.radio_button :is_active, :false %>
