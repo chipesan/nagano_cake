@@ -18,7 +18,11 @@
     </td><br>
     販売ステータス
     <td>
-      <span><%= @item.is_active %></span>
+      <% if @item.is_active == true %>
+      <span>販売中</span>
+      <% else %>
+      <span>販売中止</span>
+      <% end %>
     </td><br>
     <td><%= link_to "編集する",admin_items_edit_path(@item.id), class: "btn btn-sm btn-success" %></td>
     <td></td>
