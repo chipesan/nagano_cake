@@ -1,0 +1,41 @@
+<tbody>
+  <tr>
+    会員ID
+    <td>
+      <span><%= @customer.id %></span>
+    </td><br>
+    氏名
+    <td>
+      <span><%= @customer.name %></span>
+    </td><br>
+    <td>
+    フリガナ
+      <span><%= @customer.name_kana %></span>
+    </td><br>
+    郵便番号
+    <td>
+      <span><%= @customer.postal_code %></span>
+    </td><br>
+    住所
+    <td>
+      <span><%= @customer.address %></span>
+    </td><br>
+    電話番号
+      <td>
+      <span><%= @customer.phonenumber %></span>
+    </td><br>
+    メールアドレス
+    <td>
+      <span><%= @customer.email %></span>
+    </td><br>
+    会員ステータス
+      <% if @customer.is_active == true %>
+      <span>会員</span>
+      <% else %>
+      <span>非会員</span>
+      <% end %>
+    </td><br>
+    <td><%= link_to "編集する",admin_customers_edit_path(@customer.id), class: "btn btn-sm btn-success" %></td>
+    <td></td>
+  </tr>
+</tbody>
