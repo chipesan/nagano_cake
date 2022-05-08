@@ -6,11 +6,11 @@
     </td><br>
     氏名
     <td>
-      <span><%= @customer.name %></span>
+      <span><%= @customer.full_name %></span>
     </td><br>
     <td>
     フリガナ
-      <span><%= @customer.name_kana %></span>
+      <span><%= @customer.full_name_kana %></span>
     </td><br>
     郵便番号
     <td>
@@ -22,7 +22,7 @@
     </td><br>
     電話番号
       <td>
-      <span><%= @customer.phonenumber %></span>
+      <span><%= @customer.telephone_number %></span>
     </td><br>
     メールアドレス
     <td>
@@ -30,12 +30,12 @@
     </td><br>
     会員ステータス
       <% if @customer.is_active == true %>
-      <span>会員</span>
+      <span>有効</span>
       <% else %>
-      <span>非会員</span>
+      <span>退会</span>
       <% end %>
     </td><br>
-    <td><%= link_to "編集する",admin_customers_edit_path(@customer.id), class: "btn btn-sm btn-success" %></td>
+    <td><%= link_to "編集する",admin_customers_path(@customer.id), class: "btn btn-sm btn-success" %></td>
     <td></td>
   </tr>
 </tbody>

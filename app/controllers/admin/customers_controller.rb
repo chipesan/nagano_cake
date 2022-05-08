@@ -15,8 +15,8 @@ class Admin::CustomersController < ApplicationController
   end
 
   private
-  def Customer_params
-    params.require(:customer).permit(:name, :email, :encrypted_password, :postal_code, :address, :phonenumber, :is_active)
+  def customer_params
+    params.require(:customer).permit(:name, :email, :encrypted_password, :postal_code, :address, :telephone_number, :is_active)
   end
 
 end

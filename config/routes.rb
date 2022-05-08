@@ -10,7 +10,9 @@ get "/home/about" => "public/homes#about"
 get '/items' => 'public/items#index', as: "public_items_index"
 get "/customers/show" => "public/customers#show", as: "public_customers_show"
 get "/cart_items" => "public/cart_items#index", as: "public_cart_items_index"
-
+namespace :admin do
+  resources :customers, only:[:edit, :show, :index]
+end
 get "/admin" => "admin/homes#top"
 get "/admin/genres" => "admin/genres#index", as: "admin_genres_index"
 get "/admin/genres/:id/edit" => "admin/genres#edit", as: "admin_genres_edit"
@@ -21,9 +23,7 @@ get "admin/items/new" => "admin/items#new", as: "admin_items_new"
 post "admin/items" => "admin/items#create", as: "admin_items_create"
 get "admin/items/:id" => "admin/items#show", as: "admin_items_show"
 get "admin/items/:id/edit" => "admin/items#edit", as: "admin_items_edit"
-get "admin/customers" => "admin/customers#index", as: "admin_customers_index"
-get "admin/customers/:id" => "admin_customers#show", as: "admin_customers_show"
-get "admin/customers/:id/edit" => "admin_customers#edit", as: "admin_customers_edit"
+
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
