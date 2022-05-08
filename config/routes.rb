@@ -6,10 +6,11 @@ devise_for :customers,skip: [:passwords], controllers: {
   sessions: 'public/sessions'
 }
 root to: 'public/homes#top'
-get "/home/about" => "public/homes#about"
+get "/about" => "public/homes#about", as: "public_homes_about"
 get '/items' => 'public/items#index', as: "public_items_index"
 get "/customers/show" => "public/customers#show", as: "public_customers_show"
 get "/cart_items" => "public/cart_items#index", as: "public_cart_items_index"
+get "/customers/confirm" => "public/customers#confirm", as: "public_customers_confirm"
 namespace :admin do
   resources :customers, only:[:edit, :show, :index]
 end
@@ -23,6 +24,7 @@ get "admin/items/new" => "admin/items#new", as: "admin_items_new"
 post "admin/items" => "admin/items#create", as: "admin_items_create"
 get "admin/items/:id" => "admin/items#show", as: "admin_items_show"
 get "admin/items/:id/edit" => "admin/items#edit", as: "admin_items_edit"
+get "/admin/orders/:id" => "admin/orders#show", as: "admin_orders_show"
 
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {

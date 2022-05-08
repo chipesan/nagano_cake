@@ -31,7 +31,7 @@
          </li>
       <% else %>
        <!--管理者ログインしてないとき-->
-         <li><%= link_to "アバウト", home_about_path, class: "fas fa-home nav-link text-light" %>
+         <li><%= link_to "アバウト", public_homes_about_path, class: "fas fa-home nav-link text-light" %>
          </li>
          <li><%= link_to "商品一覧", public_items_index_path, class: "fas fa-home nav-link text-light" %>
          </li>
@@ -53,7 +53,7 @@
          </li>
       <% else %>
        <!--会員ログインしてないとき-->
-         <li><%= link_to "アバウト", home_about_path, class: "fas fa-home nav-link text-light" %>
+         <li><%= link_to "アバウト", public_homes_about_path, class: "fas fa-home nav-link text-light" %>
          </li>
          <li><%= link_to "商品一覧", public_items_index_path, class: "fas fa-home nav-link text-light" %>
          </li>

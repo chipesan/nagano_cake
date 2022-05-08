@@ -1,1 +1,33 @@
-マイページ
+<h2>マイページ</h2>
+<tbody>
+  <td><%= link_to "編集する",public_customers_show_path(@customer.id), class: "btn btn-sm btn-success" %></td>
+  <tr>
+    会員ID
+    <td>
+      <span><%= @customer.id %></span>
+    </td><br>
+    氏名
+    <td>
+      <span><%= @customer.full_name %></span>
+    </td><br>
+    <td>
+    フリガナ
+      <span><%= @customer.full_name_kana %></span>
+    </td><br>
+    郵便番号
+    <td>
+      <span><%= @customer.postal_code %></span>
+    </td><br>
+    住所
+    <td>
+      <span><%= @customer.address %></span>
+    </td><br>
+    電話番号
+      <td>
+      <span><%= @customer.telephone_number %></span>
+    </td><br>
+    メールアドレス
+    <td>
+      <span><%= @customer.email %></span>
+    </td><br>
+    </td>
