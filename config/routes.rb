@@ -6,12 +6,15 @@ devise_for :customers,skip: [:passwords], controllers: {
   sessions: 'public/sessions'
 }
 root to: 'public/homes#top'
-get "/about" => "public/homes#about", as: "public_homes_about"
-get '/items' => 'public/items#index', as: "public_items_index"
-get "/customers/:id/show" => "public/customers#show", as: "public_customers_show"
-get "/cart_items" => "public/cart_items#index", as: "public_cart_items_index"
-get "/customers/confirm" => "public/customers#confirm", as: "public_customers_confirm"
-get "/customers/:id/edit" => "public/customers#edit", as: "public_customers_edit"
+get "public/about" => "public/homes#about", as: "public_homes_about"
+get 'public/items' => 'public/items#index', as: "public_items_index"
+get "public/customers/:id/show" => "public/customers#show", as: "public_customers_show"
+get "public/cart_items" => "public/cart_items#index", as: "public_cart_items_index"
+get "public/customers/confirm" => "public/customers#confirm", as: "public_customers_confirm"
+get "public/customers/:id/edit" => "public/customers#edit", as: "public_customers_edit"
+get "public/addresses" => "public/addresses#index", as: "public_addresses_index"
+post "public/addresses" => "public/addresses#create", as: "public_addresses_create"
+
 namespace :admin do
   resources :customers, only:[:edit, :show, :index]
 end
