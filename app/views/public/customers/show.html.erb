@@ -1,17 +1,13 @@
 <h2>マイページ</h2>
 <tbody>
-  <td><%= link_to "編集する",public_customers_show_path(@customer.id), class: "btn btn-sm btn-success" %></td>
+  <td>登録情報　<%= link_to "編集する",public_customers_show_path(@customer.id), class: "btn btn-sm btn-success" %></td><br>
   <tr>
-    会員ID
-    <td>
-      <span><%= @customer.id %></span>
-    </td><br>
     氏名
     <td>
       <span><%= @customer.full_name %></span>
     </td><br>
     <td>
-    フリガナ
+    カナ
       <span><%= @customer.full_name_kana %></span>
     </td><br>
     郵便番号
