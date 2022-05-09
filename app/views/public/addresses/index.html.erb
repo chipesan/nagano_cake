@@ -29,6 +29,7 @@
 <td>
 <%= address.name %>
 </td>
+<td><%= link_to "編集する",public_addresses_edit_path(address.id), class: "btn btn-sm btn-success" %></td>
 </tr>
 <% end %>
 </table>

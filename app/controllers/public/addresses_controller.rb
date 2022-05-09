@@ -8,12 +8,16 @@ class Public::AddressesController < ApplicationController
     @address = Address.new(address_params)
     if @address.save
       # 登録できた時
-      redirect_to admin_genres_path
+      redirect_to public_addresses_index_path
     else
       # 登録できなかった時
       @addresses = Address.all
       render :index
     end
+  end
+
+  def edit
+    @address = Address.find(params[:id])
   end
 
   private

@@ -14,6 +14,7 @@ get "public/customers/confirm" => "public/customers#confirm", as: "public_custom
 get "public/customers/:id/edit" => "public/customers#edit", as: "public_customers_edit"
 get "public/addresses" => "public/addresses#index", as: "public_addresses_index"
 post "public/addresses" => "public/addresses#create", as: "public_addresses_create"
+get "public/addresses/:id/edit" => "public/addresses#edit", as: "public_addresses_edit"
 
 namespace :admin do
   resources :customers, only:[:edit, :show, :index]
