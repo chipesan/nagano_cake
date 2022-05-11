@@ -8,6 +8,7 @@ devise_for :customers,skip: [:passwords], controllers: {
 root to: 'public/homes#top'
 get "public/about" => "public/homes#about", as: "public_homes_about"
 get 'public/items' => 'public/items#index', as: "public_items_index"
+get "public/items/:id" => "public/items#show", as: "public_items_show"
 get "public/customers/:id/show" => "public/customers#show", as: "public_customers_show"
 get "public/cart_items" => "public/cart_items#index", as: "public_cart_items_index"
 get "public/customers/confirm" => "public/customers#confirm", as: "public_customers_confirm"
