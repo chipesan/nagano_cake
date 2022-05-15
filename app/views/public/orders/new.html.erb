@@ -1,0 +1,12 @@
+<h2>注文情報入力</h2>
+
+<%= form_with model: @orders, url: public_orders_create_path do |f| %>
+
+<%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+<%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
+
+<%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+<%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
+
+<% end %>
+
