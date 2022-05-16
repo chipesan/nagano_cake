@@ -1,6 +1,7 @@
 class Public::CartItemsController < ApplicationController
   def index
     @cart_items = current_customer.cart_items
+    @total = 0
   end
 
   def update
@@ -19,13 +20,14 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    @cart_items = Cart_item.new(cart_item_params)
-    if @cart_item.save
+    @cart_items = CartItem.new(cart_item_params)
+    @cart_items.customer_id = current_customer.id
+    if @cart_items.save!
       # カート内商品が追加できた時
-      redirect_to public_cartitems_index_path
+      redirect_to public_cart_items_index_path
     else
       # カート内商品が追加できなかった時
-      @cart_item = Cart_item.all
+      @cart_item = CartItem.all
       render :index
     end
   end
