@@ -12,11 +12,14 @@ class Public::CartItemsController < ApplicationController
 
   def destroy
     @cart_items = CartItem.find(params[:id])
+    CartItem.destroy
   end
 
 
   def destroy_all
-    @cart_items = current_customer.cart_items
+    @cart_items = current_customer.cart_items.destroy_all
+    cart_items.destroy_all
+
   end
 
   def create

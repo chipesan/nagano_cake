@@ -1,14 +1,14 @@
 class Public::OrdersController < ApplicationController
   def new
-    @order.new
+    @order = Order.new
   end
 
   def confirm
-    @customer = current_customer
+    @order = current_customer
   end
 
   def complete
-    @customer = current_customer
+    @order = current_customer
   end
 
   def create
