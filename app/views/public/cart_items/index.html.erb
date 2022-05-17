@@ -17,7 +17,7 @@
           <td><%= cart_item.amount %></td>
           <td><%= cart_item.subtotal %></td>
           <td><% @total +=  (cart_item.item.price * 1.1).floor * cart_item.amount %></td>
-          <td><%= link_to "削除する", public_cart_items_destroy_path(@cart_items), method: :delete, class: "btn btn-sm btn-danger" %></td>
+          <td><%= link_to "削除する", public_cart_items_destroy_path(cart_item), method: :delete, class: "btn btn-sm btn-danger" %></td>
       </tr>
   <% end %>
    <td><%= link_to "買い物を続ける", public_items_index_path(@cart_items), method: :get, class: "btn btn-sm btn-danger" %></td>
