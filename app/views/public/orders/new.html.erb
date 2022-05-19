@@ -1,6 +1,6 @@
 <h2>注文情報入力</h2>
 
-<%= form_with model: @order, url: public_orders_new_path do |f| %>
+<%= form_with model: @order, url: public_orders_confirm_path do |f| %>
 <h4>支払い方法</h4>
 <%= f.radio_button :method_of_payment, Order.method_of_payments.key(0) %>
 <%= f.label :method_of_payment, Order.method_of_payments_i18n[:credit_card] %>
@@ -26,8 +26,8 @@
 	<%= f.text_field :postal_code %>
 	<br>
 
-	<%= f.label :order_address, "住所" %>
-	<%= f.text_field :order_address %>
+	<%= f.label :address, "住所" %>
+	<%= f.text_field :address %>
 	<br>
 
 	<%= f.label :name, "宛名" %>

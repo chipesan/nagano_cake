@@ -21,7 +21,7 @@ get "public/addresses" => "public/addresses#index", as: "public_addresses_index"
 post "public/addresses" => "public/addresses#create", as: "public_addresses_create"
 get "public/addresses/:id/edit" => "public/addresses#edit", as: "public_addresses_edit"
 patch "/public/addresses/:id" => "public/addresses#update", as: "public_addresses_update"
-get "piblic/orders/new" => "public/orders#new", as: "public_orders_new"
+get "public/orders/new" => "public/orders#new", as: "public_orders_new"
 post "public/orders/confirm" => "public/orders#confirm", as: "public_orders_confirm"
 get "public/orders/complete" => "public/orders#complete", as: "public_orders_complete"
 namespace :admin do

@@ -10,13 +10,24 @@ class Public::OrdersController < ApplicationController
     @total = 0
     @postage = 800
 
-
-    if params[:order][:address_option] == 0
+    if params[:order][:address_option] == "0"
     #カレントカスタマーのアドレスと名前と郵便番号を＠オーダーに入れる
-      @order = current_customer.adderess.name.postal_code
-    elsif params[:order][:address_option] == 1
-      @order = order_params.id
+    puts "0!!!"
+    @customer = current_customer
+    @order.name = @customer.last_name + @customer.first_name
+    @order.postal_code = @customer.postal_code
+    @order.address = @customer.address
+    elsif params[:order][:address_option] == "1"
     #idがparams[:order][:address_id]のアドレステーブルのレコードの中身を＠オーダーに入れる
+    puts "1!!!"
+    @address = Address.find(params[:order][:address_id])
+    @order.postal_code = @address.postal_code
+    @order.address = @address.address
+    @order.name = @address.name
+    else
+    puts "2!!!"
+    @address = Address.new
+    @addresses = Address.all
     end
   end
 
@@ -46,6 +57,6 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:method_of_payment, :postal_code, :adderess, :name)
+    params.require(:order).permit(:method_of_payment, :postal_code, :address, :name)
   end
 end

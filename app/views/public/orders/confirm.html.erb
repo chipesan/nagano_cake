@@ -20,7 +20,7 @@
   <%= @postage %>
   <%= @total %>
   <%= @postage + @total %>
-  <%= @order.method_of_payment %>
-  <%=" ３つのカラムを足す "%>
+  <%= @order.method_of_payment_i18n %>
+  <%= @order.postal_code + @order.address + @order.name %>
   <td><%= link_to "注文を確定する", public_orders_complete_path(current_customer), method: :get, class: "btn btn-sm btn-danger" %></td>
 </table>
