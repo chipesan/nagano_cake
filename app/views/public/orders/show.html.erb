@@ -1,1 +1,71 @@
-注文履歴詳細
+<head>
+<title>注文履歴詳細</title>
+</head>
+
+<body>
+  <table>
+      <h4>注文情報</h4>
+    <tr>
+    　注文日
+    　<td>
+      <span><%= @order.created_at %></span>
+    　</td><br>
+    　配送先
+    　<td>
+      <span><%= @order.address %></span>
+    　</td><br>
+    　支払い方法
+    　<td>
+      <span><%= @order.method_of_payment %></span>
+      </td><br>
+    </tr>
+  </table>
+
+  <table>
+      <h4>請求情報</h4>
+    <tr>
+    　商品合計
+    　<td>
+    　<%= @total %>
+    　</td><br>
+    　配送料
+    　<td>
+      <span><%= @order.postage %></span>
+    　</td><br>
+    　ご請求額
+    　<td>
+      <span><%= @total + @order.postage %></span>
+    　</td><br>
+    </tr>
+  </table>
+
+  <table>
+      <h4>注文内容</h4>
+  <thead>
+      <th>商品</th>
+      <th>単価（税込）</th>
+      <th>個数</th>
+      <th>小計</th>
+  </thead>
+  <tbody>
+  </tbody>
+  　<% @order_details.each do |order_detail| %>
+　　<tr>
+　　　<td>
+  　　<%= order_detail.item.name %>
+　　　</td>
+　　　<td>
+  　　<%= order_detail.item.with_tax_price %>
+　　　</td>
+　　　<td>
+  　　<%= order_detail.quantity %>
+　　　</td>
+　　　<td>
+  　　<%= order_detail.subtotal %>
+  　　<% @total += order_detail.subtotal %>
+　　　</td>
+　　</tr>
+　　<% end %>
+　</tbody>
+  </table>
+</body>

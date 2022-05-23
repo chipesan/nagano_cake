@@ -26,6 +26,8 @@ post "public/orders/confirm" => "public/orders#confirm", as: "public_orders_conf
 get "public/orders/complete" => "public/orders#complete", as: "public_orders_complete"
 get "public/orders" => "public/orders#index", as: "public_orders_index"
 get "public/orders/:id" => "public/orders#show", as: "public_orders_show"
+post "public/orders/create" => "public/orders#create", as: "public_orders_create"
+
 namespace :admin do
   resources :customers, only:[:edit, :show, :index]
 end
