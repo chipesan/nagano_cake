@@ -12,13 +12,20 @@
 <% @orders.each do |order| %>
   <tr>
     <td>
-      <span><%= link_to order.created_at, admin_orders_show_path(order.id) %></span>
+      <span><%= link_to order.created_at, admin_orders_show_path(order) %></span>
     </td>
     <td>
       <span><%= order.name %></span>
     </td>
-    <td></td>
+    <td>
+      <% total_quantity = 0 %>
+      <% order.order_details.each do |order_detail| %>
+        <% total_quantity += order_detail.quantity %>
+      <% end %>
+      <span><%= total_quantity %></span>
+    </td>
   </tr>
 <% end %>
+<%= paginate @orders %>
 </tbody>
 </table>

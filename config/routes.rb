@@ -20,7 +20,7 @@ get "public/customers/edit" => "public/customers#edit", as: "public_customers_ed
 get "public/addresses" => "public/addresses#index", as: "public_addresses_index"
 post "public/addresses" => "public/addresses#create", as: "public_addresses_create"
 get "public/addresses/:id/edit" => "public/addresses#edit", as: "public_addresses_edit"
-patch "/public/addresses/:id" => "public/addresses#update", as: "public_addresses_update"
+patch "public/addresses/:id" => "public/addresses#update", as: "public_addresses_update"
 get "public/orders/new" => "public/orders#new", as: "public_orders_new"
 post "public/orders/confirm" => "public/orders#confirm", as: "public_orders_confirm"
 get "public/orders/complete" => "public/orders#complete", as: "public_orders_complete"
@@ -31,17 +31,17 @@ post "public/orders/create" => "public/orders#create", as: "public_orders_create
 namespace :admin do
   resources :customers, only:[:edit, :show, :index]
 end
-get "/admin" => "admin/homes#top"
-get "/admin/genres" => "admin/genres#index", as: "admin_genres_index"
-get "/admin/genres/:id/edit" => "admin/genres#edit", as: "admin_genres_edit"
+get "admin" => "admin/homes#top"
+get "admin/genres" => "admin/genres#index", as: "admin_genres_index"
+get "admin/genres/:id/edit" => "admin/genres#edit", as: "admin_genres_edit"
 post "admin/genres" => "admin/genres#create", as: "admin_genres_create"
 get "admin/items" => "admin/items#index", as: "admin_items_index"
-patch "/admin/genres/:id" => "admin/genres#update", as: "admin_genres_update"
+patch "admin/genres/:id" => "admin/genres#update", as: "admin_genres_update"
 get "admin/items/new" => "admin/items#new", as: "admin_items_new"
 post "admin/items" => "admin/items#create", as: "admin_items_create"
 get "admin/items/:id" => "admin/items#show", as: "admin_items_show"
 get "admin/items/:id/edit" => "admin/items#edit", as: "admin_items_edit"
-get "/admin/orders/:id" => "admin/orders#show", as: "admin_orders_show"
+get "admin/orders/:id" => "admin/orders#show", as: "admin_orders_show"
 
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {

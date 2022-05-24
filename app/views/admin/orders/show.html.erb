@@ -30,23 +30,23 @@
  </tr>
 </thead>
 <tbody>
-<% @order.each do |item| %>
-  <tr>
-    <td>
-      <span><%= item.name %></span>
-    </td>
-    <td>
-      <span><%= item.price * 1.1 %></span>
-    </td>
-    <td>
-      <span><%= item.amount %></span>
-    </td>
-    <td>
-      <span><%= item.payment_amount %></span>
-    </td>
-    <td></td>
-  </tr>
-<% end %>
+　<% @order_details.each do |order_detail| %>
+　　<tr>
+　　　<td>
+  　　<%= order_detail.item.name %>
+　　　</td>
+　　　<td>
+  　　<%= order_detail.item.with_tax_price %>
+　　　</td>
+　　　<td>
+  　　<%= order_detail.quantity %>
+　　　</td>
+　　　<td>
+  　　<%= order_detail.subtotal %>
+  　　<% @total += order_detail.subtotal %>
+　　　</td>
+　　</tr>
+　　<% end %>
 </tbody>
 </table>
   </tr>

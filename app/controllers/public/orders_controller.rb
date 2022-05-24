@@ -66,7 +66,7 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @cart_items = current_customer.cart_items
+
     @total = 0
     @order_details = @order.order_details
   end
