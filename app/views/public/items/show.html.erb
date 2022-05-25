@@ -34,5 +34,5 @@
     <%= f.hidden_field :item_id, :value => @item.id %>
       <%= f.select :amount, [['1',1], ['2',2], ['3',3]], include_blank: "個数選択" %>
     </td>
-    <td><%= f.submit 'カートに入れる' %></td>
+    <td><%= f.submit 'カートに入れる', class: "btn btn-success" %></td>
     <% end %>
