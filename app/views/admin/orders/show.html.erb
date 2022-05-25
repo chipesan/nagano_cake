@@ -18,7 +18,7 @@
       <span><%= @order.method_of_payment %></span>
     </td><br>
 
-    <h2>注文商品一覧</h2>
+
 <table class="table table-hover table-inverse">
 <thead>
  <tr>
@@ -49,5 +49,21 @@
 　　<% end %>
 </tbody>
 </table>
-  </tr>
+    </tr>
+    <br>
+    <tr>
+    　商品合計
+    　<td>
+    　<span><%= @total %></span>
+    　</td><br>
+    　送料
+    　<td>
+      <span><%= @order.postage %></span>
+    　</td><br>
+    　請求金額合計
+    　<td>
+      <span><%= @total + @order.postage %></span>
+    　</td><br>
+    </tr>
+
 </tbody>
